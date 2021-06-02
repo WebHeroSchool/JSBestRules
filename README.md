@@ -40,15 +40,28 @@ function func(){ return a}`
 
 - Плохой код
 
-`let name='Regina'; let age=20;`
+`var firstName;
+ 
+ firstName = 'Sergey'
+ 
+ var lastName
+ 
+ lastName = 'Polivara'`
 
 - Хороший код
 
 Помещайте все объявления вверху каждого скрипта или функции
 
-`let name, age;
-name = 'Regina';
-age = 20;`
+`var firstName, lastName, price, discount, fullPrice;
+
+// Use later
+firstName = "Sergey";
+lastName = "Polivara";
+
+price = 19.90;
+discount = 0.10;
+
+fullPrice = price * 100 / discount;`
 
 # 4. Никогда не объявляйте числовые, строковые или логические объекты #
 
@@ -86,21 +99,24 @@ age = 20;`
 
 - Вычитание строки из строки не генерирует ошибку, но возвращает NaN.
 
-Пример:
+- Плохой код:
 
-`var x = 5 + 7;       // x.valueOf() is 12,  typeof x is a number`
+`5 + null    // возвращает 5, потому что null преобразуется в 0
+"5" + null  // возвращает "5null", потому что null преобразуется в "null"
+"5" + 2     // возвращает "52", потому что 2 преобразуется в "2"
+"5" - 2     // возвращает 3, потому что "5" преобразуется в 5
+"5" * "2"   // возвращает 10, потому что "5" и "2" преобразуется в 5 и 2 `
 
-`var x = 5 + "7";     // x.valueOf() is 57,  typeof x is a string`
+- Хороший код:
 
-`var x = "5" + 7;     // x.valueOf() is 57,  typeof x is a string`
-
-`var x = 5 - 7;       // x.valueOf() is -2,  typeof x is a number`
-
-`var x = 5 - "7";     // x.valueOf() is -2,  typeof x is a number`
-
-`var x = "5" - 7;     // x.valueOf() is -2,  typeof x is a number`
-
-`var x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number`
+`Number("3.14")    // возвращает 3.14
+ Number(" ")       // возвращает 0 
+ Number("")        // возвращает 0
+ Number("99 88")   // возвращает NaN 
+ 
+ String(x)         // преобразовывает строку числовую переменную x
+ String(123)       // преобразовывает строку константу 123
+ String(100 + 23)  // преобразовывает строку результат выражения`
 
 # 7. Используйте === Сравнение #
 
